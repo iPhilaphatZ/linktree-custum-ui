@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dev Terminal Links</title>
+<style>
+  /* Reset */
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    font-family: 'Source Code Pro', monospace, monospace;
+    color: #00ff99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .terminal {
+    background: #001f1fdd;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #00ff99cc;
+    width: 100%;
+    max-width: 420px;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  h1 {
+    margin: 0 0 20px 0;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 1.8rem;
+    color: #00ff99;
+    text-shadow: 0 0 10px #00ff99bb;
+  }
+
+  button {
+    background: #003333;
+    border: 2px solid #00ff99;
+    border-radius: 6px;
+    color: #00ff99;
+    font-size: 1.15rem;
+    padding: 15px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    user-select: none;
+  }
+  button:hover,
+  button:focus {
+    background: #00ff99;
+    color: #003333;
+    box-shadow: 0 0 15px #00ff99cc;
+    outline: none;
+  }
+  button:active {
+    transform: scale(0.98);
+  }
+
+  .log {
+    background: #000a0a;
+    border-radius: 6px;
+    padding: 15px;
+    min-height: 90px;
+    font-size: 1rem;
+    line-height: 1.3;
+    white-space: pre-line;
+    font-family: 'Source Code Pro', monospace;
+    box-shadow: inset 0 0 8px #00ff9977;
+    user-select: text;
+  }
+
+  @media (max-width: 480px) {
+    .terminal {
+      padding: 15px 20px;
+      max-width: 100%;
+    }
+    button {
+      font-size: 1rem;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 1.4rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="terminal" role="main" aria-label="Developer terminal link panel">
+    <h1>DEV TERMINAL LINKS</h1>
+    <button id="btn-facebook" aria-describedby="desc-facebook">> run facebook/iphilaphatz</button>
+    <button id="btn-github" aria-describedby="desc-github">> run github/philaphatz</button>
+    <button id="btn-portfolio" aria-describedby="desc-portfolio">> run portfolio</button>
+    <div class="log" id="log" aria-live="polite" aria-atomic="true"></div>
+  </div>
+
+  <script>
+    const logBox = document.getElementById('log');
+
+    function clearLog() {
+      logBox.textContent = '';
+    }
+
+    function deploy(command, url) {
+      clearLog();
+      logBox.textContent = `> run ${command}\n[LOG] Deploying to server...`;
+
+      setTimeout(() => {
+        logBox.textContent += `\n[OK] Redirecting to ${url}`;
+        setTimeout(() => {
+          window.location.href = url;
+        }, 1500);
+      }, 1500);
+    }
+
+    document.getElementById('btn-facebook').addEventListener('click', () => {
+      deploy('facebook/iphilaphatz', 'https://facebook.com/iphilaphatz');
+    });
+
+    document.getElementById('btn-github').addEventListener('click', () => {
+      deploy('github/philaphatz', 'https://github.com/philaphatz');
+    });
+
+    document.getElementById('btn-portfolio').addEventListener('click', () => {
+      deploy('portfolio', 'https://philaphatz.dev');
+    });
+  </script>
+</body>
+</html>
+
