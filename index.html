@@ -1,33 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dev Terminal</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Advanced Dev Terminal</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- # ใส่ฟอนต์แบบ monospace สวยๆ -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet" />
 </head>
 <body>
-<div class="terminal">
-  <h1>DEV TERMINAL</h1>
-  <div class="log" id="log">Welcome to the Dev Terminal!<br>Type <b>help</b> to see available commands.</div>
-  
-  <div class="input-line">
-    <span class="prompt">&gt;</span>
-    <input type="text" id="command" placeholder="Type your command here and press Enter">
+  <div class="terminal">
+    <h1>ADVANCED DEV TERMINAL</h1>
+    <div class="log" id="log">
+      Welcome to the Advanced Dev Terminal!<br />
+      Type <b>help</b> to see available commands.
+    </div>
+    <div class="input-line">
+      <span class="prompt">&gt;</span>
+      <input
+        type="text"
+        id="command"
+        placeholder="Type your command here and press Enter"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+      />
+    </div>
+
+    <div class="help-box" id="help-box">
+      <strong>Available Commands:</strong><br />
+      <ul>
+        <li><b>whoami</b>: Show your info</li>
+        <li><b>projects</b>: List portfolio projects</li>
+        <li><b>contact</b>: Show contact info</li>
+        <li><b>run facebook</b>: Open Facebook</li>
+        <li><b>run github</b>: Open GitHub</li>
+        <li><b>run portfolio</b>: Open Portfolio</li>
+        <li><b>back</b>: Return to main Linktree</li>
+        <li><b>clear</b>: Clear the terminal screen</li>
+        <li><b>help</b>: Show this help box</li>
+        <li><b>echo &lt;text&gt;</b>: Echo your text</li>
+        <li><b>date</b>: Show current date and time</li>
+        <li><b>calc &lt;expression&gt;</b>: Calculate math expression (e.g. calc 2+2*3)</li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      <small>© 2025 Philaphatz | Powered by HTML5, CSS3, JS</small>
+    </div>
   </div>
-  
-  <div class="help-box" id="help-box">
-    <strong>Available Commands:</strong><br>
-    - <b>whoami</b>: Show your info<br>
-    - <b>projects</b>: List portfolio projects<br>
-    - <b>contact</b>: Show contact info<br>
-    - <b>run facebook</b>: Open Facebook<br>
-    - <b>run github</b>: Open GitHub<br>
-    - <b>run portfolio</b>: Open Portfolio<br>
-    - <b>back</b>: Return to main Linktree<br>
-    - <b>clear</b>: Clear screen<br>
-  </div>
-</div>
-<script src="script.js"></script>
+
+  <script src="script.js"></script>
 </body>
 </html>

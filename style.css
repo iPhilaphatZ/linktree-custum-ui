@@ -1,74 +1,166 @@
+/* # Theme Colors and variables */
 :root {
-  --bg: #000000;
-  --text: #00ff99;
-  --help-bg: #001111;
+  --bg-dark: #0f0f0f;
+  --bg-light: #f5f5f5;
+  --text-dark: #00ff99;
+  --text-light: #222222;
+  --btn-bg-dark: #003333;
+  --btn-bg-light: #cccccc;
+  --btn-border-dark: #00ff99;
+  --btn-border-light: #222222;
+  --help-bg-dark: #001111;
+  --help-bg-light: #e6e6e6;
+  --shadow-glow: #00ff99cc;
 }
 
+/* # Reset and Base */
+* {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--text);
+  background: var(--bg-dark);
+  color: var(--text-dark);
   font-family: 'Source Code Pro', monospace;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  transition: background 0.5s, color 0.5s;
 }
 
+/* # Terminal Container */
 .terminal {
-  width: 95%;
-  max-width: 600px;
-  background: rgba(0, 0, 0, 0.9);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px var(--text);
+  width: 90%;
+  max-width: 700px;
+  background: rgba(0, 0, 0, 0.95);
+  border-radius: 15px;
+  padding: 25px 30px;
+  box-shadow: 0 0 20px var(--shadow-glow);
+  display: flex;
+  flex-direction: column;
+  user-select: none;
 }
 
+/* # Terminal Title */
 h1 {
+  font-weight: 700;
+  font-size: 2rem;
+  margin: 0 0 15px 0;
   text-align: center;
-  font-size: 1.4rem;
-  margin-bottom: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  text-shadow: 0 0 10px var(--text-dark);
+  user-select: text;
 }
 
+/* # Log area */
 .log {
+  flex-grow: 1;
   background: #000000cc;
-  padding: 10px;
-  height: 250px;
-  overflow-y: auto;
-  border-radius: 5px;
+  border-radius: 10px;
+  padding: 15px 20px;
+  font-size: 0.95rem;
+  line-height: 1.4;
   white-space: pre-line;
-  box-shadow: inset 0 0 5px var(--text);
-  margin-bottom: 10px;
-  font-size: 0.9rem;
+  overflow-y: auto;
+  box-shadow: inset 0 0 10px var(--shadow-glow);
+  user-select: text;
+  min-height: 280px;
+  max-height: 280px;
+  margin-bottom: 15px;
 }
 
+/* # Input line */
 .input-line {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
+  margin-bottom: 15px;
 }
 
 .prompt {
-  color: var(--text);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--text-dark);
+  user-select: none;
 }
 
 .input-line input {
-  flex: 1;
+  flex-grow: 1;
   background: transparent;
   border: none;
-  border-bottom: 1px solid var(--text);
-  color: var(--text);
+  border-bottom: 2px solid var(--text-dark);
+  color: var(--text-dark);
   font-family: inherit;
-  font-size: 1rem;
+  font-size: 1.1rem;
   outline: none;
-  padding: 5px;
+  padding: 7px 10px;
+  caret-color: var(--text-dark);
+  user-select: text;
+  transition: border-color 0.3s;
 }
 
+.input-line input::placeholder {
+  color: #00ff9977;
+}
+
+.input-line input:focus {
+  border-color: #00ffcc;
+  box-shadow: 0 0 10px #00ffcc;
+}
+
+/* # Help Box */
 .help-box {
-  background: var(--help-bg);
-  color: var(--text);
-  border: 1px solid var(--text);
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 0.85rem;
+  background: var(--help-bg-dark);
+  color: var(--text-dark);
+  border-radius: 8px;
+  padding: 15px 20px;
+  border: 1px solid var(--text-dark);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  max-height: 160px;
+  overflow-y: auto;
+  box-shadow: 0 0 8px var(--shadow-glow);
+  user-select: text;
+  margin-bottom: 10px;
+}
+
+.help-box ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.help-box li {
+  margin-bottom: 7px;
+}
+
+/* # Footer */
+.footer {
+  text-align: center;
+  color: var(--text-dark);
+  font-size: 0.75rem;
+  opacity: 0.5;
+  user-select: none;
+}
+
+/* # Scrollbar for log and help box */
+.log::-webkit-scrollbar,
+.help-box::-webkit-scrollbar {
+  width: 7px;
+}
+
+.log::-webkit-scrollbar-thumb,
+.help-box::-webkit-scrollbar-thumb {
+  background: var(--text-dark);
+  border-radius: 10px;
+}
+
+/* # Responsive */
+@media (max-width: 480px) {
+  .terminal {
+    width: 98%;
+    padding: 15px 20px;
+  }
 }
